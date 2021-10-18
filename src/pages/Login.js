@@ -5,8 +5,8 @@ import useProvider from '../hook/useProvider';
 
 const Login = () => {
 	const [, authentication] = useProvider();
-	const [user, signInUsingGoogle] = authentication;
-	console.log(user);
+	const [, signInUsingGoogle] = authentication;
+
 	const {
 		register,
 		handleSubmit,

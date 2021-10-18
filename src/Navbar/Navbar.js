@@ -4,8 +4,7 @@ import useProvider from '../hook/useProvider';
 
 const Navbar = () => {
 	const [, authentication] = useProvider();
-	const [user, logOut] = authentication;
-	console.log(user.displayName);
+	const [user, , logOut] = authentication;
 
 	return (
 		<div>
@@ -57,29 +56,28 @@ const Navbar = () => {
 							>
 								Appointment
 							</Link>
-							{user.email && (
+							{user.displayName ? (
 								<p>
 									<span className='text-green-700'>
-										{/* {user.displayName}{' '} */}
-										<button onClick={logOut}>
+										{user.displayName}{' '}
+										<button
+											onClick={logOut}
+											className='py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300'
+										>
 											Log Out
 										</button>
 									</span>
 								</p>
+							) : (
+								<div>
+									<Link
+										to='/login'
+										className='py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300'
+									>
+										Log In
+									</Link>
+								</div>
 							)}
-							<Link
-								to='/login'
-								className='py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300'
-							>
-								Log In
-							</Link>
-
-							<Link
-								to='/register'
-								className='py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 transition duration-300'
-							>
-								Register
-							</Link>
 						</div>
 
 						<div className='md:hidden flex items-center'>

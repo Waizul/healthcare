@@ -1,18 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useProvider from '../hook/useProvider';
 
 const Register = () => {
+	const [data, setData] = useState({});
+	const { email, password } = data;
+	const [, authentication] = useProvider();
+	const [, signInUsingGoogle, , createUser] = authentication;
+
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = (data) => setData(data);
 
 	return (
-		<div>
-			<div className='flex justify-center mt-10'>
+		<div className='mt-5'>
+			<h2 className='text-green-700 text-center text-2xl font-semibold'>
+				Registration Form
+			</h2>
+			<div className='flex justify-center mt-5'>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
 					className='flex flex-col gap-y-2 w-1/2'
@@ -20,13 +29,11 @@ const Register = () => {
 					<input
 						className='border-4'
 						placeholder='name'
-						defaultValue=''
 						{...register('name')}
 					/>
 					<input
 						className='border-4'
 						placeholder='email'
-						defaultValue=''
 						{...register('email', { required: true })}
 					/>
 					{errors.email && (
@@ -37,7 +44,6 @@ const Register = () => {
 					<input
 						className='border-4'
 						placeholder='password'
-						defaultValue=''
 						{...register('password', { required: true })}
 					/>
 					{errors.password && (
@@ -49,21 +55,20 @@ const Register = () => {
 						className='border-4'
 						placeholder='address'
 						defaultValue=''
-						{...register('name')}
+						{...register('address')}
 					/>
 					<input
 						className='border-4'
 						placeholder='city'
-						defaultValue=''
-						{...register('name')}
+						{...register('city')}
 					/>
 					<input
 						className='border-4'
 						placeholder='country'
-						defaultValue=''
-						{...register('name')}
+						{...register('country')}
 					/>
 					<input
+						onClick={() => createUser(email, password)}
 						className='font-bold bg-green-200 hover:bg-red-200'
 						type='submit'
 					/>
@@ -71,7 +76,10 @@ const Register = () => {
 			</div>
 
 			<div className='text-center  mt-5'>
-				<button className='text-white bg-red-600 px-5'>
+				<button
+					onClick={signInUsingGoogle}
+					className='text-white bg-red-600 px-5'
+				>
 					Sign Up with Google
 				</button>
 				<p className='mt-5'>

@@ -6,6 +6,7 @@ import {
 	GoogleAuthProvider,
 	signOut,
 	onAuthStateChanged,
+	createUserWithEmailAndPassword,
 } from 'firebase/auth';
 initializeFirebase();
 
@@ -16,6 +17,19 @@ const useFirebase = () => {
 	const auth = getAuth();
 	const googleProvider = new GoogleAuthProvider();
 
+	const createUser = (email, password) => {
+		console.log(email, password);
+		createUserWithEmailAndPassword(auth, email, password)
+			.then((result) => {
+				const user = result.user;
+				setUser(user);
+			})
+			.catch((error) => {
+				const errorCode = error.code;
+				const errorMessage = error.message;
+				setError(errorCode, errorMessage);
+			});
+	};
 	const signInUsingGoogle = () => {
 		signInWithPopup(auth, googleProvider)
 			.then((result) => {
@@ -30,9 +44,10 @@ const useFirebase = () => {
 	};
 
 	const logOut = () => {
-		const auth = getAuth();
 		signOut(auth)
-			.then(() => {})
+			.then(() => {
+				setUser({});
+			})
 			.catch((error) => {
 				setError(error);
 			});
@@ -45,7 +60,7 @@ const useFirebase = () => {
 			setError('User is signed out');
 		}
 	});
-	return [user, signInUsingGoogle, logOut];
+	return [user, signInUsingGoogle, logOut, createUser];
 };
 
 export default useFirebase;
