@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 
 const useService = () => {
 	const [services, setServices] = useState([]);
-	console.log(services);
 
 	useEffect(() => {
 		fetch('./healthcare.json')

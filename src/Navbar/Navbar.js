@@ -1,7 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import useProvider from '../hook/useProvider';
 
 const Navbar = () => {
+	const [, authentication] = useProvider();
+	const [user, logOut] = authentication;
+	console.log(user.displayName);
+
 	return (
 		<div>
 			<nav className='bg-white shadow-lg'>
@@ -52,17 +57,28 @@ const Navbar = () => {
 							>
 								Appointment
 							</Link>
+							{user.email && (
+								<p>
+									<span className='text-green-700'>
+										{/* {user.displayName}{' '} */}
+										<button onClick={logOut}>
+											Log Out
+										</button>
+									</span>
+								</p>
+							)}
 							<Link
 								to='/login'
 								className='py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 hover:text-white transition duration-300'
 							>
 								Log In
 							</Link>
+
 							<Link
-								to='/signup'
+								to='/register'
 								className='py-2 px-2 font-medium text-gray-500 rounded hover:bg-green-500 transition duration-300'
 							>
-								Sign Up
+								Register
 							</Link>
 						</div>
 

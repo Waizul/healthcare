@@ -12,7 +12,7 @@ initializeFirebase();
 const useFirebase = () => {
 	const [user, setUser] = useState({});
 	const [error, setError] = useState('');
-
+	console.log(user);
 	const auth = getAuth();
 	const googleProvider = new GoogleAuthProvider();
 
@@ -45,7 +45,7 @@ const useFirebase = () => {
 			setError('User is signed out');
 		}
 	});
-	return { user, signInUsingGoogle, logOut };
+	return [user, signInUsingGoogle, logOut];
 };
 
 export default useFirebase;

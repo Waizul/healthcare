@@ -1,12 +1,8 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import useProvider from '../hook/useProvider';
 
-const Login = () => {
-	const [, authentication] = useProvider();
-	const [user, signInUsingGoogle] = authentication;
-	console.log(user);
+const Register = () => {
 	const {
 		register,
 		handleSubmit,
@@ -39,6 +35,35 @@ const Login = () => {
 						</span>
 					)}
 					<input
+						className='border-4'
+						placeholder='password'
+						defaultValue=''
+						{...register('password', { required: true })}
+					/>
+					{errors.password && (
+						<span className='text-red-700'>
+							This field is required
+						</span>
+					)}
+					<input
+						className='border-4'
+						placeholder='address'
+						defaultValue=''
+						{...register('name')}
+					/>
+					<input
+						className='border-4'
+						placeholder='city'
+						defaultValue=''
+						{...register('name')}
+					/>
+					<input
+						className='border-4'
+						placeholder='country'
+						defaultValue=''
+						{...register('name')}
+					/>
+					<input
 						className='font-bold bg-green-200 hover:bg-red-200'
 						type='submit'
 					/>
@@ -46,16 +71,13 @@ const Login = () => {
 			</div>
 
 			<div className='text-center  mt-5'>
-				<button
-					onClick={signInUsingGoogle}
-					className='text-white bg-red-600 px-5'
-				>
-					Sign In with Google
+				<button className='text-white bg-red-600 px-5'>
+					Sign Up with Google
 				</button>
 				<p className='mt-5'>
-					Not registered yet,{' '}
+					Already registered,{' '}
 					<span className='text-blue-600'>
-						<Link to='/register'>Register here</Link>
+						<Link to='/login'>Login here</Link>
 					</span>
 				</p>
 			</div>
@@ -63,4 +85,4 @@ const Login = () => {
 	);
 };
 
-export default Login;
+export default Register;
