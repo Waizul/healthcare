@@ -5,16 +5,18 @@ import useProvider from '../hook/useProvider';
 
 const Register = () => {
 	const [data, setData] = useState({});
-	const { email, password } = data;
+	const { name, email, password } = data;
 	const [, authentication] = useProvider();
 	const [, signInUsingGoogle, , createUser] = authentication;
-
+	console.log(name);
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const onSubmit = (data) => setData(data);
+	const onSubmit = (data) => {
+		setData(data);
+	};
 
 	return (
 		<div className='mt-5'>
@@ -29,8 +31,14 @@ const Register = () => {
 					<input
 						className='border-4'
 						placeholder='name'
-						{...register('name')}
+						{...register('name', { required: true })}
 					/>
+					{errors.name && (
+						<span className='text-red-700'>
+							This field is required
+						</span>
+					)}
+
 					<input
 						className='border-4'
 						placeholder='email'
@@ -68,7 +76,7 @@ const Register = () => {
 						{...register('country')}
 					/>
 					<input
-						onClick={() => createUser(email, password)}
+						onClick={() => createUser(name, email, password)}
 						className='font-bold bg-green-200 hover:bg-red-200'
 						type='submit'
 					/>

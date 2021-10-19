@@ -1,32 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import useProvider from '../hook/useProvider';
 
 const Login = () => {
+	const [data, setData] = useState({});
 	const [, authentication] = useProvider();
-	const [, signInUsingGoogle] = authentication;
+	const [, signInUsingGoogle, , , signInUsingEmail] = authentication;
 
+	const { email, password } = data;
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
-	const onSubmit = (data) => console.log(data);
+	const onSubmit = (data) => setData(data);
 
 	return (
-		<div>
-			<div className='flex justify-center mt-10'>
+		<div className='mt-5'>
+			<h2 className='text-green-700 text-2xl font-semibold text-center'>
+				Login
+			</h2>
+			<div className='flex justify-center mt-2'>
 				<form
 					onSubmit={handleSubmit(onSubmit)}
 					className='flex flex-col gap-y-2 w-1/2'
 				>
-					<input
-						className='border-4'
-						placeholder='name'
-						defaultValue=''
-						{...register('name')}
-					/>
 					<input
 						className='border-4'
 						placeholder='email'
@@ -39,6 +38,18 @@ const Login = () => {
 						</span>
 					)}
 					<input
+						className='border-4'
+						placeholder='password'
+						defaultValue=''
+						{...register('password', { required: true })}
+					/>
+					{errors.password && (
+						<span className='text-red-700'>
+							This field is required
+						</span>
+					)}
+					<input
+						onClick={() => signInUsingEmail(email, password)}
 						className='font-bold bg-green-200 hover:bg-red-200'
 						type='submit'
 					/>
