@@ -7,7 +7,7 @@ const Register = () => {
 	const [data, setData] = useState({});
 	const { name, email, password } = data;
 	const [, authentication] = useProvider();
-	const [, signInUsingGoogle, , createUser] = authentication;
+	const [, signInUsingGoogle, , createUser, , error] = authentication;
 	console.log(name);
 	const {
 		register,
@@ -81,6 +81,7 @@ const Register = () => {
 						type='submit'
 					/>
 				</form>
+				<p>{error}</p>
 			</div>
 
 			<div className='text-center  mt-5'>

@@ -6,6 +6,7 @@ import ProvideAll from './context/ProvideAll';
 import ServiceDetail from './pages/ServiceDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import PrivateRoute from './pages/Privateroute';
 
 function App() {
 	return (
@@ -20,9 +21,11 @@ function App() {
 						<Route path='/home'>
 							<Home></Home>
 						</Route>
-						<Route path='/service'>
+						<PrivateRoute path='/emergency'></PrivateRoute>
+
+						<PrivateRoute path='/service/:serviceId'>
 							<ServiceDetail></ServiceDetail>
-						</Route>
+						</PrivateRoute>
 						<Route path='/login'>
 							<Login></Login>
 						</Route>

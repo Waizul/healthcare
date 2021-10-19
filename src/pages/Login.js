@@ -1,20 +1,37 @@
+import { getAuth } from '@firebase/auth';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import useProvider from '../hook/useProvider';
 
 const Login = () => {
 	const [data, setData] = useState({});
-	const [, authentication] = useProvider();
-	const [, signInUsingGoogle, , , signInUsingEmail] = authentication;
+	const location = useLocation();
+	const history = useHistory();
+	const redirect_uri = location.state?.from || '/';
 
-	const { email, password } = data;
 	const {
 		register,
 		handleSubmit,
 		formState: { errors },
 	} = useForm();
 	const onSubmit = (data) => setData(data);
+	const { email, password } = data;
+
+	const [, authentication] = useProvider();
+	const [, signInUsingGoogle, , , signInUsingEmail, error] = authentication;
+
+	const handleGoogleSignIn = () => {
+		signInUsingGoogle().then((result) => {
+			history.push(redirect_uri);
+		});
+	};
+
+	const handleEmailSignIn = () => {
+		signInUsingEmail(email, password).then((result) => {
+			history.push(redirect_uri);
+		});
+	};
 
 	return (
 		<div className='mt-5'>
@@ -49,16 +66,17 @@ const Login = () => {
 						</span>
 					)}
 					<input
-						onClick={() => signInUsingEmail(email, password)}
+						onClick={handleEmailSignIn}
 						className='font-bold bg-green-200 hover:bg-red-200'
 						type='submit'
 					/>
 				</form>
+				<p>{error}</p>
 			</div>
 
 			<div className='text-center  mt-5'>
 				<button
-					onClick={signInUsingGoogle}
+					onClick={handleGoogleSignIn}
 					className='text-white bg-red-600 px-5'
 				>
 					Sign In with Google

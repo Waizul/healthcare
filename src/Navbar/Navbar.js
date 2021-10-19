@@ -29,22 +29,16 @@ const Navbar = () => {
 									Home
 								</Link>
 								<Link
-									to='/services'
+									to='/Emergency'
 									className='py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300'
 								>
-									Services
+									Emergency
 								</Link>
 								<Link
 									to='/about'
 									className='py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300'
 								>
 									About
-								</Link>
-								<Link
-									to='/contact'
-									className='py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300'
-								>
-									Contact Us
 								</Link>
 							</div>
 						</div>

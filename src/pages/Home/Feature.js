@@ -7,35 +7,46 @@ const Feature = () => {
 	return (
 		<div className=''>
 			<div className='mb-5 text-center'>
-				<h2 className=''>Why choose us</h2>
-				<p>---------</p>
+				<h2 className='text-green-700 text-2xl border-b-4'>
+					Why choose us
+				</h2>
+
 				<p>We provide the best care for you and for your health</p>
 			</div>
-			<div className='grid grid-rows-1 grid-flow-col mx-20'>
-				<div>
-					<img src={ambulance} className='w-2/3' alt='' />
-					<h2>Ambulance</h2>
-					<p>fksdlfjusdofiopsk</p>
-				</div>
+			<div
+				className='grid sm:grid-rows-1 grid-rows-3 
+		 gap-10 grid-flow-col mx-20'
+			>
 				<div className='flex flex-col content-center'>
-					<div>
-						<img src={equipment} className='w-2/3' alt='' />
-					</div>
-
-					<div>
-						<h2>Ambulance</h2>
-						<p>fksdlfjusdofiopsk</p>
-					</div>
-				</div>
-				<div>
 					<img src={img} className='w-2/3' alt='' />
-					<h2>Ambulance</h2>
-					<p>fksdlfjusdofiopsk</p>
+					<h2 className='text-gray-800 font-bold'>
+						Professional Doctors
+					</h2>
+					<p>
+						{' '}
+						Our doctors concerned with promoting, maintaining or
+						restoring health through diagnosis.
+					</p>
 				</div>
-				<div>
-					<img src={service} className='w-2/3' alt='' />
-					<h2>Ambulance</h2>
-					<p>fksdlfjusdofiopsk</p>
+
+				<div className='flex flex-col content-center'>
+					<img src={equipment} className='w-2/3' alt='' />
+					<h2 className='text-gray-800 font-bold'>
+						Newest Equipment
+					</h2>
+					<p>
+						Ultrasound, Scanners, Scalpels, Patient monitors.
+						Defibrillators. Surgical tables.
+					</p>
+				</div>
+
+				<div className='flex flex-col content-center'>
+					<img src={ambulance} className='w-2/3' alt='' />
+					<h2 className='text-gray-800 font-bold'>Ambulance</h2>
+					<p>
+						Transfers immobile patients to and from their hospital
+						appointments.
+					</p>
 				</div>
 			</div>
 		</div>
