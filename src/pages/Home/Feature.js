@@ -5,11 +5,9 @@ import img from './../../image/doctor.png';
 import service from './../../image/medical-services.png';
 const Feature = () => {
 	return (
-		<div className=''>
+		<div className='mt-5'>
 			<div className='mb-5 text-center'>
-				<h2 className='text-green-700 text-2xl border-b-4'>
-					Why choose us
-				</h2>
+				<h2 className='text-green-700 text-2xl'>Why choose us</h2>
 
 				<p>We provide the best care for you and for your health</p>
 			</div>

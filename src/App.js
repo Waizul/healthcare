@@ -6,7 +6,11 @@ import ProvideAll from './context/ProvideAll';
 import ServiceDetail from './pages/ServiceDetail';
 import Login from './pages/Login';
 import Register from './pages/Register';
-import PrivateRoute from './pages/Privateroute';
+import PrivateRoute from './pages/PrivateRoute';
+import Appointment from './pages/Appointment';
+import Emergency from './pages/Emergency';
+import NotFound from './pages/NotFound';
+import Footer from './pages/Footer';
 
 function App() {
 	return (
@@ -21,7 +25,6 @@ function App() {
 						<Route path='/home'>
 							<Home></Home>
 						</Route>
-						<PrivateRoute path='/emergency'></PrivateRoute>
 
 						<PrivateRoute path='/service/:serviceId'>
 							<ServiceDetail></ServiceDetail>
@@ -32,7 +35,17 @@ function App() {
 						<Route path='/register'>
 							<Register></Register>
 						</Route>
+						<PrivateRoute path='/appointment'>
+							<Appointment></Appointment>
+						</PrivateRoute>
+						<PrivateRoute path='/emergency'>
+							<Emergency></Emergency>
+						</PrivateRoute>
+						<Route path='*'>
+							<NotFound></NotFound>
+						</Route>
 					</Switch>
+					<Footer></Footer>
 				</Router>
 			</div>
 		</ProvideAll>

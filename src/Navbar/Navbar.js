@@ -24,21 +24,15 @@ const Navbar = () => {
 							<div className='hidden md:flex items-center space-x-1'>
 								<Link
 									to='/home'
-									className='py-4 px-2 text-green-500 border-b-4 border-green-500 font-semibold '
+									className='py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300'
 								>
 									Home
 								</Link>
 								<Link
-									to='/Emergency'
+									to='/emergency'
 									className='py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300'
 								>
-									Emergency
-								</Link>
-								<Link
-									to='/about'
-									className='py-4 px-2 text-gray-500 font-semibold hover:text-green-500 transition duration-300'
-								>
-									About
+									EMS
 								</Link>
 							</div>
 						</div>

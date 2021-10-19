@@ -2,10 +2,10 @@ import React from 'react';
 import banner from './../../image/banner.jpg';
 const Header = () => {
 	return (
-		<div className='flex gap-x-8'>
-			<img src={banner} className='w-2/3' alt='' />
+		<div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ml-10'>
+			<img src={banner} className='w-full' alt='' />
 			<div>
-				<table class='table-fixed w-2/3'>
+				<table class='table-fixed w-1/2'>
 					<thead className='text-blue-500'>
 						<tr>
 							<th class='w-1/2'>Opening</th>
