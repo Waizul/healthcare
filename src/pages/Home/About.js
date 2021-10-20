@@ -2,11 +2,11 @@ import React from 'react';
 import ultragram from './../../image/ultragram.jpg';
 const About = () => {
 	return (
-		<div className='mb-10'>
-			<h1 className='text-2xl mb-5 ml-10 font-bold'>About Us</h1>
-			<div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ml-10'>
+		<div className='pb-10 bg-gray-300'>
+			<h1 className='text-2xl mb-5 ml-20 font-bold'>About Us</h1>
+			<div className='grid sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 ml-20'>
 				<img src={ultragram} alt='' />
-				<div>
+				<div className='mr-16'>
 					<p>
 						Digital Diagnostic Center started its journey with the
 						vision of taking the health care services into a new

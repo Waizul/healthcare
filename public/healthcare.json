@@ -14,13 +14,13 @@
 	{
 		"id": 3,
 		"name": "X-ray",
-		"description": "",
+		"description": "X-rays are a type of radiation called electromagnetic waves. X-ray imaging creates pictures of the inside of your body. The images show the parts of your body in different shades of black and white. ... The most familiar use of x-rays is checking for fractures (broken bones), but x-rays are also used in other ways.",
 		"img": "https://i.ibb.co/ZgZvjXW/xray.jpg"
 	},
 	{
 		"id": 4,
 		"name": "Blood Test",
-		"description": "",
+		"description": "Blood tests are very common. When you have routine checkups, your doctor may recommend blood tests to see how your body is working.Many blood tests dont require any special preparations. For some, you may need to fast (not eat any food) for 8 to 12 hours before the test. Your doctor will let you know how to prepare for blood tests.",
 		"img": "https://i.ibb.co/8bgXgmt/bloodtest.jpg"
 	},
 	{
@@ -32,7 +32,7 @@
 	{
 		"id": 6,
 		"name": "Ambulance",
-		"description": "",
+		"description": "An ambulance is a medically equipped vehicle which transports patients to treatment facilities, such as hospitals.[1] Typically, out-of-hospital medical care is provided to the patient.Ambulances are used to respond to medical emergencies by emergency medical services. For this purpose, they are generally equipped with flashing warning lights and sirens. They can rapidly transport paramedics and other first responders to the scene, carry equipment for administering emergency care and transport patients to hospital or other definitive care.",
 		"img": "https://i.ibb.co/ZY2R1xg/ambulance2.jpg"
 	}
 ]

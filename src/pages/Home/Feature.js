@@ -2,7 +2,7 @@ import React from 'react';
 import ambulance from './../../image/ambulance.png';
 import equipment from './../../image/medical-equipment.png';
 import img from './../../image/doctor.png';
-import service from './../../image/medical-services.png';
+
 const Feature = () => {
 	return (
 		<div className='mt-5'>

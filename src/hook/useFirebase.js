@@ -75,6 +75,9 @@ const useFirebase = () => {
 			})
 			.catch((error) => {
 				setError(error);
+			})
+			.finally(() => {
+				setLoading(false);
 			});
 	};
 

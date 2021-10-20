@@ -11,7 +11,7 @@ const ServiceDetail = () => {
 
 	const { name, description, img } = matchedService;
 	return (
-		<div className='w-2/3 mx-20'>
+		<div className='w-2/3 mx-20 my-10'>
 			<div>
 				<img src={img} className='' alt='' />
 			</div>
