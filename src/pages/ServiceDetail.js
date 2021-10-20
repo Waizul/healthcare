@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
 import { useParams } from 'react-router';
 import useProvider from '../hook/useProvider';
 
 const ServiceDetail = () => {
-	const [service, setService] = useState({});
 	const { serviceId } = useParams();
 	const [[data]] = useProvider();
 

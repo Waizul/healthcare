@@ -25,16 +25,17 @@ function App() {
 						<Route path='/home'>
 							<Home></Home>
 						</Route>
-
-						<PrivateRoute path='/service/:serviceId'>
-							<ServiceDetail></ServiceDetail>
-						</PrivateRoute>
 						<Route path='/login'>
 							<Login></Login>
 						</Route>
+
 						<Route path='/register'>
 							<Register></Register>
 						</Route>
+						<PrivateRoute path='/service/:serviceId'>
+							<ServiceDetail></ServiceDetail>
+						</PrivateRoute>
+
 						<PrivateRoute path='/appointment'>
 							<Appointment></Appointment>
 						</PrivateRoute>

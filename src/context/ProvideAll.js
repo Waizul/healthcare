@@ -7,7 +7,6 @@ export const allContext = createContext();
 const ProvideAll = ({ children }) => {
 	const data = useService();
 	const authentication = useFirebase();
-	console.log(authentication);
 
 	return (
 		<allContext.Provider value={[data, authentication]}>

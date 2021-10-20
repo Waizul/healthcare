@@ -42,7 +42,11 @@ const Register = () => {
 					<input
 						className='border-4'
 						placeholder='email'
-						{...register('email', { required: true })}
+						{...register('email', {
+							required: true,
+							pattern:
+								/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/,
+						})}
 					/>
 					{errors.email && (
 						<span className='text-red-700'>
@@ -59,22 +63,7 @@ const Register = () => {
 							This field is required
 						</span>
 					)}
-					<input
-						className='border-4'
-						placeholder='address'
-						defaultValue=''
-						{...register('address')}
-					/>
-					<input
-						className='border-4'
-						placeholder='city'
-						{...register('city')}
-					/>
-					<input
-						className='border-4'
-						placeholder='country'
-						{...register('country')}
-					/>
+
 					<input
 						onClick={() => createUser(name, email, password)}
 						className='font-bold bg-green-200 hover:bg-red-200'
