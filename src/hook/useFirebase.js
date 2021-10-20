@@ -10,6 +10,7 @@ import {
 	signInWithEmailAndPassword,
 	updateProfile,
 } from 'firebase/auth';
+
 initializeFirebase();
 
 const useFirebase = () => {
@@ -24,8 +25,10 @@ const useFirebase = () => {
 		createUserWithEmailAndPassword(auth, email, password)
 			.then((result) => {
 				const newUser = result.user;
-				setUser(newUser);
+				const addedUser = { ...newUser, user };
+				setUser(addedUser);
 				updateUser(name);
+				console.log(user);
 			})
 			.catch((error) => {
 				const errorCode = error.code;

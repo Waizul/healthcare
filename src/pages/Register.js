@@ -80,7 +80,7 @@ const Register = () => {
 				>
 					Sign Up with Google
 				</button>
-				<p className='mt-5'>
+				<p className='mt-5 mb-20'>
 					Already registered,{' '}
 					<span className='text-blue-600'>
 						<Link to='/login'>Login here</Link>
