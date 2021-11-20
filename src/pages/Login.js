@@ -22,7 +22,7 @@ const Login = () => {
 
 	const handleGoogleSignIn = () => {
 		signInUsingGoogle().then((result) => {
-			// history.push(redirect_uri);
+			history.push(redirect_uri);
 		});
 	};
 
